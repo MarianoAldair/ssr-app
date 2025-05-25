@@ -1,0 +1,15 @@
+<h1 class="text-3xl">Application Pokémons</h1>
+<h2>Current page: {{ currentPage() }}</h2>
+<hr class="my-2">
+<section>
+  @if (pokemons()) {
+    <pokemons-list [pokemons]="pokemons()"></pokemons-list>
+  }
+  @else {
+    <pokemons-list-skeleton/>
+  }
+</section>
+<div class="flex justify-between">
+  <button (click)="loadPokemons(-1)" class="mt-2" [disabled]="currentPage() === 1">Previous</button>
+  <button (click)="loadPokemons(+1)" class="mt-2">Next</button>
+</div>
